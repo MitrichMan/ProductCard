@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class ProductCardViewModel: ObservableObject {
-    @Published var productImage: UIImage = UIImage() {
+    @Published var productImage = UIImage() {
         didSet {
             if !imageIsFetched {
                 imageIsFetched.toggle()
@@ -21,10 +21,19 @@ final class ProductCardViewModel: ObservableObject {
     
     var imageIsFetched = false
     
+    var manufacturedAt = "\(DataManager.shared.countryOfManufacture),  \(DataManager.shared.regionOfManufacture)"
+    @Published var flag = UIImage()
+    
     @MainActor func fetchImages(from url: String) {
         Task {
             guard let image = await fetchImage(from: url) else { return }
             productImage = image
+        }
+    }
+    
+    func getFlag(of country: String) {
+        if country == "Россия" {
+            flag = UIImage(resource: .russianFlag)
         }
     }
     

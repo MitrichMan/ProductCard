@@ -14,6 +14,9 @@ class DataManager: ObservableObject {
     
     let promotionDescription = "Цена по карте"
     
+    let countryOfManufacture = "Россия"
+    let regionOfManufacture = "Владимирская область"
+    
     let discount = -5
     
     private init() {}

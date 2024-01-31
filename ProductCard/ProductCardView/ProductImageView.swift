@@ -17,8 +17,8 @@ struct ProductImageView: View {
                 .resizable()
                 .cornerRadius(20)
                 .aspectRatio(contentMode: .fit)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
+//                .padding(.horizontal, 16)
+//                .padding(.vertical, 8)
         } else {
             
             ZStack{
@@ -26,8 +26,8 @@ struct ProductImageView: View {
                     .cornerRadius(20)
                     .opacity(0.15)
                     .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
+//                    .padding(.horizontal, 16)
+//                    .padding(.vertical, 8)
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
             }

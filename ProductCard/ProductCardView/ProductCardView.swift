@@ -14,46 +14,43 @@ struct ProductCardView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                VStack(alignment: .leading) {
                     Divider()
                         .padding(.bottom, 8)
                     
                     ZStack {
-                        ProductImageView(image: viewModel.productImage, isFetched: viewModel.imageIsFetched)
+                        ProductImageView(
+                            image: viewModel.productImage,
+                            isFetched: viewModel.imageIsFetched
+                        )
                         
                         PromotionTileView()
                     }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
                     
-                    HStack {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                        
-                        Text("4.7")
-                            .font(.system(size: 16, weight: .semibold))
-                        
-                        Text("| 19 отзывов")
-                            .font(.system(size: 16))
-                            .foregroundColor(.gray)
-                            
-                        Spacer()
-                        
-                        ZStack {
-                            Color.red
-                                .frame(width: 30, height: 20)
-                            Text(viewModel.discount)
-                                .font(.system(size: 12, weight: .semibold))
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.vertical, 6)
+                    MarksAndDiscountView(discount: viewModel.discount)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                    
+                    Text("Набор Конфет Raffaello 150г")
+                        .font(.system(size: 30, weight: .semibold))
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                    
+                    CountryOfManufactureView(
+                        flag: viewModel.flag,
+                        countryOfManufacture: viewModel.manufacturedAt
+                    )
+                    
                 }
                 
                 .onAppear(perform: {
+                    viewModel.getFlag(of: DataManager.shared.countryOfManufacture)
                     viewModel.fetchImages(from: API.productImage.rawValue)
                 })
                 
-// MARK: - NavBar setup
+                // MARK: - NavBar setup
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Button(action: { }, label: {
                     Image(systemName: "arrow.left")
@@ -72,4 +69,24 @@ struct ProductCardView: View {
 
 #Preview {
     ProductCardView()
+}
+
+struct CountryOfManufactureView: View {
+    let flag: UIImage
+    let countryOfManufacture: String
+    
+    var body: some View {
+        HStack {
+            Image(uiImage: flag)
+                .resizable()
+                .frame(width: 20, height: 20)
+                .cornerRadius(10)
+                .aspectRatio(contentMode: .fill)
+            
+            Text(countryOfManufacture)
+                .font(.system(size: 14))
+        }
+        .padding(.vertical, 8)
+        .padding(.horizontal)
+    }
 }

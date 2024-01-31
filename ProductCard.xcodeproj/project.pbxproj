@@ -18,6 +18,7 @@
 		4DC80EFD2B6AF2760023933B /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC80EFC2B6AF2760023933B /* ProductImageView.swift */; };
 		4DC80EFF2B6AF2E00023933B /* PromotionTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC80EFE2B6AF2E00023933B /* PromotionTileView.swift */; };
 		4DC80F012B6AF3440023933B /* TrailingNavigationBarItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC80F002B6AF3440023933B /* TrailingNavigationBarItemsView.swift */; };
+		4DC80F032B6AFDA80023933B /* MarksAndDiscountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC80F022B6AFDA80023933B /* MarksAndDiscountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		4DC80EFC2B6AF2760023933B /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
 		4DC80EFE2B6AF2E00023933B /* PromotionTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionTileView.swift; sourceTree = "<group>"; };
 		4DC80F002B6AF3440023933B /* TrailingNavigationBarItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingNavigationBarItemsView.swift; sourceTree = "<group>"; };
+		4DC80F022B6AFDA80023933B /* MarksAndDiscountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarksAndDiscountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				4DC80EFC2B6AF2760023933B /* ProductImageView.swift */,
 				4DC80EFE2B6AF2E00023933B /* PromotionTileView.swift */,
 				4DC80F002B6AF3440023933B /* TrailingNavigationBarItemsView.swift */,
+				4DC80F022B6AFDA80023933B /* MarksAndDiscountView.swift */,
 			);
 			path = ProductCardView;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				4DC80EFD2B6AF2760023933B /* ProductImageView.swift in Sources */,
 				4DC80EF92B6AC9B20023933B /* DataManager.swift in Sources */,
 				4DC80EF72B6AC9A10023933B /* Product.swift in Sources */,
+				4DC80F032B6AFDA80023933B /* MarksAndDiscountView.swift in Sources */,
 				4DC80EDE2B6AC82E0023933B /* ProductCardApp.swift in Sources */,
 				4DC80EEE2B6AC9100023933B /* ProductCardViewModel.swift in Sources */,
 				4DC80F012B6AF3440023933B /* TrailingNavigationBarItemsView.swift in Sources */,
