@@ -10,9 +10,11 @@ import Foundation
 class DataManager: ObservableObject {
     static let shared = DataManager()
     
+    let trailingNavBarItems = ["doc.plaintext", "tray.and.arrow.up", "heart"]
+    
     let promotionDescription = "Цена по карте"
     
-    let trailingNavBarItems = ["doc.plaintext", "tray.and.arrow.up", "heart"]
+    let discount = -5
     
     private init() {}
 }

@@ -19,67 +19,50 @@ struct ProductCardView: View {
                         .padding(.bottom, 8)
                     
                     ZStack {
+                        ProductImageView(image: viewModel.productImage, isFetched: viewModel.imageIsFetched)
                         
-                        if viewModel.imageIsFetched {
-                            Image(uiImage: viewModel.productImage)
-                                .resizable()
-                                .cornerRadius(20)
-                                .aspectRatio(contentMode: .fit)
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 8)
-                        } else {
-                            
-                            ZStack{
-                                Color.gray
-                                    .cornerRadius(20)
-                                    .opacity(0.15)
-                                    .aspectRatio(contentMode: .fit)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 8)
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle())
-                            }
-                        }
-                        
-                        VStack {
-                            HStack {
-                                Text(DataManager.shared.promotionDescription)
-                                    .padding(.horizontal, 8)
-                                    .padding(.vertical, 4)
-                                    .background(Color.green)
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 16))
-                                    .cornerRadius(5)
-                                Spacer()
-                            }
-                            Spacer()
-                        }
-                        .padding(.horizontal,20)
+                        PromotionTileView()
                     }
+                    
+                    HStack {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                        
+                        Text("4.7")
+                            .font(.system(size: 16, weight: .semibold))
+                        
+                        Text("| 19 отзывов")
+                            .font(.system(size: 16))
+                            .foregroundColor(.gray)
+                            
+                        Spacer()
+                        
+                        ZStack {
+                            Color.red
+                                .frame(width: 30, height: 20)
+                            Text(viewModel.discount)
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundColor(.white)
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 6)
                 }
                 
                 .onAppear(perform: {
                     viewModel.fetchImages(from: API.productImage.rawValue)
                 })
                 
+// MARK: - NavBar setup
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Button(action: { }, label: {
                     Image(systemName: "arrow.left")
                         .foregroundColor(.green)
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.system(size: 20, weight: .medium))
                 }))
                 .navigationBarItems(
                     trailing: HStack {
-                        ForEach(
-                            DataManager.shared.trailingNavBarItems,
-                            id: \.self
-                        ) { name in
-                            Button(action: { }, label: {
-                                Image(systemName: name)
-                                    .foregroundColor(.green)
-                                    .font(.system(size: 20, weight: .semibold))
-                            })
-                        }
+                        TrailingNavigationBarItemsView()
                     }
                 )
             }

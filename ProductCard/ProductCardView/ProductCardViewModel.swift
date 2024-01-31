@@ -17,6 +17,8 @@ final class ProductCardViewModel: ObservableObject {
         }
     }
     
+    let discount = "\(DataManager.shared.discount)%"
+    
     var imageIsFetched = false
     
     @MainActor func fetchImages(from url: String) {
