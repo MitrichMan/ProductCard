@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class DataManager: ObservableObject {
+    static let shared = DataManager()
+    
+    let promotionDescription = "Цена по карте"
+    
+    let trailingNavBarItems = ["doc.plaintext", "tray.and.arrow.up", "heart"]
+    
+    private init() {}
+}
