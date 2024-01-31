@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductCardView: View {
     var body: some View {
-        Image(systemName: "checkMark")
+        Image(systemName: "checkmark")
     }
 }
 
