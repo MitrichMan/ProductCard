@@ -16,7 +16,7 @@ class DataManager: ObservableObject {
         "heart"
     ]
     
-    let characteristicsFieldNames: [CharacteristicsFieldNames] = [
+    let characteristicsFieldNames: [CharacteristicsFieldName] = [
         .manufactured,
         .energyValue,
         .fats,
@@ -74,12 +74,12 @@ class DataManager: ObservableObject {
     
     func makeRewiews() {
         var count = 0
-        while count < 3 {
+        while count < 10 {
             reviews.append(
                 Rewiew(
                     reviewerName: "Светлана",
                     date: "26 Ноября 2023",
-                    mark: 5,
+                    mark: Double.random(in: 4...5),
                     reviewText: "Конфеты очень вкусные!!!"
                 )
             )
@@ -88,7 +88,7 @@ class DataManager: ObservableObject {
     }
 }
 
-enum CharacteristicsFieldNames: String {
+enum CharacteristicsFieldName: String {
     case manufactured = "Производство"
     case energyValue = "Энергетическая ценность, ккал/100 г"
     case fats = "Жиры/100 г"

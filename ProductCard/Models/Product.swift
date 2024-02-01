@@ -36,10 +36,10 @@ struct Characteristics {
     let maximumStorageTemperature: String
 }
 
-struct Rewiew {
+struct Rewiew: Hashable {
     let reviewerName: String
     let date: String
-    let mark: Int
+    let mark: Double
     let reviewText: String
 }
                     
