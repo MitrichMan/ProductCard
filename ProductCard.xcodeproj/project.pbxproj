@@ -11,6 +11,8 @@
 		4D7577B32B6C1DF200CBF174 /* CountryOfManufactureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577B22B6C1DF200CBF174 /* CountryOfManufactureView.swift */; };
 		4D7577B52B6C24E400CBF174 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577B42B6C24E400CBF174 /* ReviewsView.swift */; };
 		4D7577B72B6C2D3300CBF174 /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577B62B6C2D3300CBF174 /* ReviewsViewModel.swift */; };
+		4D7577BB2B6C33C200CBF174 /* CardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577BA2B6C33C200CBF174 /* CardFooterView.swift */; };
+		4D7577BD2B6C33E200CBF174 /* CardFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577BC2B6C33E200CBF174 /* CardFooterViewModel.swift */; };
 		4DC80EDE2B6AC82E0023933B /* ProductCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */; };
 		4DC80EE22B6AC8460023933B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC80EE12B6AC8460023933B /* Assets.xcassets */; };
 		4DC80EE52B6AC8460023933B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC80EE42B6AC8460023933B /* Preview Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		4D7577B22B6C1DF200CBF174 /* CountryOfManufactureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryOfManufactureView.swift; sourceTree = "<group>"; };
 		4D7577B42B6C24E400CBF174 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
 		4D7577B62B6C2D3300CBF174 /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
+		4D7577BA2B6C33C200CBF174 /* CardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFooterView.swift; sourceTree = "<group>"; };
+		4D7577BC2B6C33E200CBF174 /* CardFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFooterViewModel.swift; sourceTree = "<group>"; };
 		4DC80EDA2B6AC82E0023933B /* ProductCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardApp.swift; sourceTree = "<group>"; };
 		4DC80EE12B6AC8460023933B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +64,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D7577B82B6C318100CBF174 /* ReviewsView */ = {
+			isa = PBXGroup;
+			children = (
+				4D7577B42B6C24E400CBF174 /* ReviewsView.swift */,
+				4D7577B62B6C2D3300CBF174 /* ReviewsViewModel.swift */,
+			);
+			path = ReviewsView;
+			sourceTree = "<group>";
+		};
+		4D7577B92B6C33A400CBF174 /* CardFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				4D7577BA2B6C33C200CBF174 /* CardFooterView.swift */,
+				4D7577BC2B6C33E200CBF174 /* CardFooterViewModel.swift */,
+			);
+			path = CardFooterView;
+			sourceTree = "<group>";
+		};
 		4DC80ED12B6AC82D0023933B = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +103,9 @@
 			children = (
 				4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */,
 				4DC80EEF2B6AC91A0023933B /* ProductCardView */,
+				4DC80F082B6C13810023933B /* CharacteristicsView */,
+				4D7577B82B6C318100CBF174 /* ReviewsView */,
+				4D7577B92B6C33A400CBF174 /* CardFooterView */,
 				4DC80EF02B6AC9450023933B /* Models */,
 				4DC80EF12B6AC9530023933B /* Services */,
 				4DC80EE12B6AC8460023933B /* Assets.xcassets */,
@@ -108,9 +133,6 @@
 				4DC80F022B6AFDA80023933B /* MarksAndDiscountView.swift */,
 				4D7577B02B6C1D8800CBF174 /* DescriptionView.swift */,
 				4D7577B22B6C1DF200CBF174 /* CountryOfManufactureView.swift */,
-				4DC80F082B6C13810023933B /* CharacteristicsView */,
-				4D7577B42B6C24E400CBF174 /* ReviewsView.swift */,
-				4D7577B62B6C2D3300CBF174 /* ReviewsViewModel.swift */,
 			);
 			path = ProductCardView;
 			sourceTree = "<group>";
@@ -214,9 +236,11 @@
 				4D7577B32B6C1DF200CBF174 /* CountryOfManufactureView.swift in Sources */,
 				4DC80EFB2B6ADCB20023933B /* NetworkManager.swift in Sources */,
 				4D7577B72B6C2D3300CBF174 /* ReviewsViewModel.swift in Sources */,
+				4D7577BB2B6C33C200CBF174 /* CardFooterView.swift in Sources */,
 				4DC80EEC2B6AC86A0023933B /* ProductCardView.swift in Sources */,
 				4D7577B12B6C1D8800CBF174 /* DescriptionView.swift in Sources */,
 				4DC80EFF2B6AF2E00023933B /* PromotionTileView.swift in Sources */,
+				4D7577BD2B6C33E200CBF174 /* CardFooterViewModel.swift in Sources */,
 				4DC80EFD2B6AF2760023933B /* ProductImageView.swift in Sources */,
 				4DC80EF92B6AC9B20023933B /* DataManager.swift in Sources */,
 				4DC80F072B6C135B0023933B /* CharacteristicsViewModel.swift in Sources */,
