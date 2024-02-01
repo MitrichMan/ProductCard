@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MarksAndDiscountView: View {
     let discount: String
+    let discountIsAvailible: Bool
     
     var body: some View {
         HStack {
@@ -23,21 +24,20 @@ struct MarksAndDiscountView: View {
                 .foregroundColor(.gray)
             
             Spacer()
-            
-            ZStack {
-                Color.red
-                    .frame(width: 30, height: 20)
-                Text(discount)
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundColor(.white)
+            if discountIsAvailible {
+                ZStack {
+                    Color.red
+                        .frame(width: 30, height: 20)
+                    Text(discount)
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(.white)
+                }
             }
         }
-//        .padding(.horizontal)
-//        .padding(.vertical, 6)
     }
 }
 
 
 #Preview {
-    MarksAndDiscountView(discount: "10")
+    MarksAndDiscountView(discount: "10", discountIsAvailible: true)
 }

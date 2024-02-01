@@ -7,8 +7,24 @@
 
 import Foundation
 import UIKit
+import Combine
 
 final class ProductCardViewModel: ObservableObject {
+    @Published var product = Product(
+        name: "",
+        productImageLink: "",
+        promotionDescription: "",
+        countryOfManufacture: "",
+        regionOfManufacture: "",
+        discount: 0, 
+        description: ""
+    ) {
+        didSet {
+            manufacturedAt = "\(product.countryOfManufacture),  \(product.regionOfManufacture)"
+            discountLabelText = "-\(product.discount)%"
+        }
+    }
+    
     @Published var productImage = UIImage() {
         didSet {
             if !imageIsFetched {
@@ -17,17 +33,24 @@ final class ProductCardViewModel: ObservableObject {
         }
     }
     
-    let discount = "\(DataManager.shared.discount)%"
+    var discountLabelText = ""
     
     var imageIsFetched = false
+    var discountIsAvailible = true
     
-    var manufacturedAt = "\(DataManager.shared.countryOfManufacture),  \(DataManager.shared.regionOfManufacture)"
+    var manufacturedAt = ""
     @Published var flag = UIImage()
     
     @MainActor func fetchImages(from url: String) {
         Task {
             guard let image = await fetchImage(from: url) else { return }
             productImage = image
+        }
+    }
+    
+    func checkAvailibility(of discount: Int) {
+        if product.discount == 0 {
+            discountIsAvailible = false
         }
     }
     

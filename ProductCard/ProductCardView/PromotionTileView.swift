@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PromotionTileView: View {
+    let promotionDescription: String
     var body: some View {
         VStack {
             HStack {
-                Text(DataManager.shared.promotionDescription)
+                Text(promotionDescription)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .background(Color.green)
@@ -28,5 +29,5 @@ struct PromotionTileView: View {
 
 
 #Preview {
-    PromotionTileView()
+    PromotionTileView(promotionDescription: "123456")
 }

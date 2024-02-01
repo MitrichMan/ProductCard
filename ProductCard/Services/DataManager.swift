@@ -12,12 +12,17 @@ class DataManager: ObservableObject {
     
     let trailingNavBarItems = ["doc.plaintext", "tray.and.arrow.up", "heart"]
     
-    let promotionDescription = "Цена по карте"
-    
-    let countryOfManufacture = "Россия"
-    let regionOfManufacture = "Владимирская область"
-    
-    let discount = -5
-    
     private init() {}
+    
+    func getProduct() -> Product {
+        Product(
+            name: "Набор Конфет Raffaello 150г",
+            productImageLink: "https://s.myspar.ru/upload/img/10/1010/101002.jpg?1580739557",
+            promotionDescription: "Цена по карте",
+            countryOfManufacture: "Россия",
+            regionOfManufacture: "Владимирская область",
+            discount: 0, 
+            description: "Хрустящие кокосовые конфеты с цельным миндальным орехом. Raffaello – самые известные и любимые конфеты в России, ставшие неотъемлемой частью жизни. Такой успех стал возможным благодаря уникальному сочетанию неповторимого вкуса, изысканной белоснежной упаковки и, конечно, романтического имиджа."
+        )
+    }
 }

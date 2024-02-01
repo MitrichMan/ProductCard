@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct Product {
+    let name: String
+    let productImageLink: String
+    let promotionDescription: String
+    let countryOfManufacture: String
+    let regionOfManufacture:String
+    let discount: Int
+    let description: String
+}

@@ -24,8 +24,3 @@ enum NetworkError: Error {
     case invalidURL
     case decodingError
 }
-
-enum API: String {
-    case productImage = "https://s.myspar.ru/upload/img/10/1010/101002.jpg?1580739557"
-    
-}

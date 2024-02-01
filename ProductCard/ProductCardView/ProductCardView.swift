@@ -24,16 +24,21 @@ struct ProductCardView: View {
                             isFetched: viewModel.imageIsFetched
                         )
                         
-                        PromotionTileView()
+                        PromotionTileView(
+                            promotionDescription: viewModel.product.promotionDescription
+                        )
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                     
-                    MarksAndDiscountView(discount: viewModel.discount)
+                    MarksAndDiscountView(
+                        discount: viewModel.discountLabelText,
+                        discountIsAvailible: viewModel.discountIsAvailible
+                    )
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
                     
-                    Text("Набор Конфет Raffaello 150г")
+                    Text(viewModel.product.name)
                         .font(.system(size: 30, weight: .semibold))
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
@@ -43,11 +48,20 @@ struct ProductCardView: View {
                         countryOfManufacture: viewModel.manufacturedAt
                     )
                     
+                    Text("Описание")
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
+                    Text(viewModel.product.description)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                    
                 }
                 
                 .onAppear(perform: {
-                    viewModel.getFlag(of: DataManager.shared.countryOfManufacture)
-                    viewModel.fetchImages(from: API.productImage.rawValue)
+                    viewModel.product = DataManager.shared.getProduct()
+                    viewModel.fetchImages(from: viewModel.product.productImageLink)
+                    viewModel.checkAvailibility(of: viewModel.product.discount)
+                    viewModel.getFlag(of: viewModel.product.countryOfManufacture)
                 })
                 
                 // MARK: - NavBar setup
