@@ -15,4 +15,31 @@ struct Product {
     let regionOfManufacture:String
     let discount: Int
     let description: String
+    let characteristics: Characteristics
 }
+
+struct Characteristics {
+    let energyValue: String
+    let fats: String
+    let carbohydrates: String
+    let proteins: String
+    let category: String
+    let species: String
+    let type: String
+    let nettoWeight: String
+    let volume: String
+    let brand: String
+    let country: String
+    let standart: String
+    let storageLife: String
+    let minimumStorageTemperature: String
+    let maximumStorageTemperature: String
+}
+
+struct Rewiew {
+    let reviewerName: String
+    let date: String
+    let mark: Int
+    let reviewText: String
+}
+                    
