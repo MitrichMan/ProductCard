@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-enum Units: String, CaseIterable {
-    case unit = "Шт"
-    case kilo = "Кг"
-}
+
 struct CardFooterView: View {
     
-    @State var controledValue: Units = .kilo
+    @Binding var units: Units
     @State var quantity = 1
     
     var body: some View {
@@ -21,7 +18,7 @@ struct CardFooterView: View {
             Color.white
                 .shadow(color: .gray.opacity(0.1), radius: 8, y: -16)
             VStack {
-                Picker("Test", selection: $controledValue) {
+                Picker("Test", selection: $units) {
                     ForEach(Units.allCases, id: \.self) { unit in
                         Text(unit.rawValue)
                     }
@@ -32,64 +29,23 @@ struct CardFooterView: View {
                 
                 
                 HStack {
-                    VStack(alignment: .leading) {
-                        Text("379.9 ₽/кг")
-                            .font(.system(size: 25, weight: .semibold))
-                        Text("399,9")
-                            .foregroundColor(.gray)
-                            .strikethrough()
-                    }
+                    PricePerView()
+                        .padding(.horizontal, 16)
                     
-                    Spacer(minLength: 70)
-                    
-                    TotalPriveStepperView(quantity: $quantity)
+
+                    TotalPriceStepperView(quantity: $quantity)
+                        .padding(.trailing, 16)
+
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
             }
         }
     }
 }
 
 #Preview {
-    CardFooterView()
+    CardFooterView(units: .constant(.kilo))
 }
 
-struct TotalPriveStepperView: View {
-    @Binding var quantity: Int
-    
-    var body: some View {
-        ZStack {
-            Capsule()
-                .foregroundColor(.green)
-            HStack {
-                Button(action: {
-                    if quantity > 0 {
-                        quantity -= 1
-                    }
-                }, label: {
-                    Text("-")
-                        .font(.system(size: 50))
-                        .foregroundColor(.white)
-                })
-                .padding(.horizontal,8)
-                
-                VStack {
-                    Text("\(quantity)")
-                    Text("120₽")
-                }
-                .foregroundColor(.white)
-                
-                Button(action: {
-                    quantity += 1
-                }, label: {
-                    Text("+")
-                        .font(.system(size: 50))
-                        .foregroundColor(.white)
-                })
-                .padding(.horizontal, 8)
-            }
-            .padding(.horizontal, 16)
-        }
-    }
-}
+
+
+

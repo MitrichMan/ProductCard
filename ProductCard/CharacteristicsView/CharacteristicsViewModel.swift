@@ -17,6 +17,8 @@ final class CharacteristicsViewModel: ObservableObject {
         regionOfManufacture: "",
         discount: 0,
         description: "",
+        price: 0,
+        pricePer: .unit,
         characteristics: Characteristics(
             energyValue: "",
             fats: "",
@@ -25,8 +27,8 @@ final class CharacteristicsViewModel: ObservableObject {
             category: "",
             species: "",
             type: "",
-            nettoWeight: "",
-            volume: "",
+            nettoWeight: 0,
+            volume: 0,
             brand: "",
             country: "",
             standart: "",
@@ -74,9 +76,9 @@ final class CharacteristicsViewModel: ObservableObject {
         case .type:
             return characteristics.type
         case .nettoWeight:
-            return characteristics.nettoWeight
+            return String(characteristics.nettoWeight)
         case .volume:
-            return characteristics.volume
+            return String(characteristics.volume)
         case .brand:
             return characteristics.brand
         case .country:

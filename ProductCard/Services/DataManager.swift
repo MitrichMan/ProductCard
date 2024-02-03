@@ -108,3 +108,8 @@ enum CharacteristicsFieldName: String {
     case minimumStorageTemperature = "Температура хранения, мин °C"
     case maximumStorageTemperature = "Температура хранения, макс °C"
 }
+
+enum Units: String, CaseIterable {
+    case unit = "Шт"
+    case kilo = "Кг"
+}

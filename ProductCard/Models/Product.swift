@@ -16,7 +16,7 @@ struct Product {
     let discount: Int
     let description: String
     let price: Double
-    let pricePer: Units
+    var pricePer: Units
     let characteristics: Characteristics
 }
 

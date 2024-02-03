@@ -66,7 +66,7 @@ struct ProductCardView: View {
                     ReviewsView(reviews: DataManager.shared.reviews)
                         .padding(.vertical, 8)
                     
-                    CardFooterView()
+                    CardFooterView(units: $viewModel.product.pricePer)
                 }
             }
             
