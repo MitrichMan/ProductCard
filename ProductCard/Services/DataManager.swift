@@ -48,6 +48,8 @@ class DataManager: ObservableObject {
             regionOfManufacture: "Владимирская область",
             discount: 0, 
             description: "Хрустящие кокосовые конфеты с цельным миндальным орехом. Raffaello – самые известные и любимые конфеты в России, ставшие неотъемлемой частью жизни. Такой успех стал возможным благодаря уникальному сочетанию неповторимого вкуса, изысканной белоснежной упаковки и, конечно, романтического имиджа.", 
+            price: 399.9, 
+            pricePer: .unit, 
             characteristics: getCharacteristics()
         )
     }
@@ -61,8 +63,8 @@ class DataManager: ObservableObject {
             category: "Наборы конфет",
             species: "Не Шоколадные",
             type: "Наборы конфет",
-            nettoWeight: "0.15",
-            volume: "0.15",
+            nettoWeight: 0.15,
+            volume: 0.15,
             brand: "Raffaello",
             country: "Россия",
             standart: "ТУ 9124-003-42295149-09",

@@ -14,7 +14,7 @@ struct ProductCardView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading) {
+                VStack {
                     Divider()
                         .padding(.bottom, 8)
                     
@@ -38,10 +38,14 @@ struct ProductCardView: View {
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                     
-                    Text(viewModel.product.name)
-                        .font(.system(size: 30, weight: .semibold))
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
+                    HStack {
+                        Text(viewModel.product.name)
+                            .font(.system(size: 30, weight: .semibold))
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                        
+                        Spacer()
+                    }
                     
                     CountryOfManufactureView(
                         flag: viewModel.flag,
@@ -60,10 +64,12 @@ struct ProductCardView: View {
                         .padding(.vertical, 8)
                     
                     ReviewsView(reviews: DataManager.shared.reviews)
-                        .padding(.horizontal, 16)
                         .padding(.vertical, 8)
+                    
+                    CardFooterView()
                 }
             }
+            
             
             .onAppear(perform: {
                 viewModel.product = DataManager.shared.getProduct()

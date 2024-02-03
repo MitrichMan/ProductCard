@@ -82,6 +82,16 @@
 			path = CardFooterView;
 			sourceTree = "<group>";
 		};
+		4D7577BE2B6D6FE700CBF174 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4DC80F002B6AF3440023933B /* TrailingNavigationBarItemsView.swift */,
+				4DC80EFE2B6AF2E00023933B /* PromotionTileView.swift */,
+				4D7577B82B6C318100CBF174 /* ReviewsView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		4DC80ED12B6AC82D0023933B = {
 			isa = PBXGroup;
 			children = (
@@ -104,8 +114,8 @@
 				4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */,
 				4DC80EEF2B6AC91A0023933B /* ProductCardView */,
 				4DC80F082B6C13810023933B /* CharacteristicsView */,
-				4D7577B82B6C318100CBF174 /* ReviewsView */,
 				4D7577B92B6C33A400CBF174 /* CardFooterView */,
+				4D7577BE2B6D6FE700CBF174 /* UI */,
 				4DC80EF02B6AC9450023933B /* Models */,
 				4DC80EF12B6AC9530023933B /* Services */,
 				4DC80EE12B6AC8460023933B /* Assets.xcassets */,
@@ -128,11 +138,9 @@
 				4DC80EEB2B6AC86A0023933B /* ProductCardView.swift */,
 				4DC80EED2B6AC9100023933B /* ProductCardViewModel.swift */,
 				4DC80EFC2B6AF2760023933B /* ProductImageView.swift */,
-				4DC80EFE2B6AF2E00023933B /* PromotionTileView.swift */,
-				4DC80F002B6AF3440023933B /* TrailingNavigationBarItemsView.swift */,
 				4DC80F022B6AFDA80023933B /* MarksAndDiscountView.swift */,
-				4D7577B02B6C1D8800CBF174 /* DescriptionView.swift */,
 				4D7577B22B6C1DF200CBF174 /* CountryOfManufactureView.swift */,
+				4D7577B02B6C1D8800CBF174 /* DescriptionView.swift */,
 			);
 			path = ProductCardView;
 			sourceTree = "<group>";

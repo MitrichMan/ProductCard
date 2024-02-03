@@ -21,6 +21,8 @@ struct CountryOfManufactureView: View {
             
             Text(countryOfManufacture)
                 .font(.system(size: 16))
+            
+            Spacer()
         }
     }
 }

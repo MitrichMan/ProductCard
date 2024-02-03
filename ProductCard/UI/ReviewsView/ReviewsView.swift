@@ -22,16 +22,18 @@ struct ReviewsView: View {
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(.green)
             }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
             
             ScrollView(.horizontal) {
-                HStack(spacing: 30) {
+                HStack(spacing: 16) {
                     
                     ForEach(reviews, id: \.self) { review in
                         
                         ZStack {
                             Color.white
                                 .cornerRadius(12)
-                                .shadow(color: .gray.opacity(0.3),radius: 12)
+                                .shadow(color: .gray.opacity(0.2),radius: 8)
                             
                             VStack(alignment: .leading) {
                                 Text(review.reviewerName)
@@ -50,8 +52,13 @@ struct ReviewsView: View {
                         }
                     }
                 }
-                .padding(.vertical, 20)
+                .padding(.vertical, 16)
+                .padding(.horizontal)
             }
+            
+            Button(action: {}, label: {
+                Text("Оставить отзыв")
+            })
         }
     }
 }

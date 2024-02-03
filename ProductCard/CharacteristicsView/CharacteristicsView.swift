@@ -37,7 +37,6 @@ struct CharacteristicsView: View {
                         .layoutPriority(1)
                 }
             }
-            .animation(.default)
             
             Button(action: {
                 viewModel.isFullyPresented.toggle()
@@ -47,6 +46,7 @@ struct CharacteristicsView: View {
                     .foregroundColor(.green)
             })
         }
+        .animation(.default)
         .onAppear(perform: {
             viewModel.product = DataManager.shared.getProduct()
         })

@@ -15,6 +15,8 @@ struct Product {
     let regionOfManufacture:String
     let discount: Int
     let description: String
+    let price: Double
+    let pricePer: Units
     let characteristics: Characteristics
 }
 
@@ -26,8 +28,8 @@ struct Characteristics {
     let category: String
     let species: String
     let type: String
-    let nettoWeight: String
-    let volume: String
+    let nettoWeight: Double
+    let volume: Double
     let brand: String
     let country: String
     let standart: String
