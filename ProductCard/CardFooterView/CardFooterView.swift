@@ -14,7 +14,7 @@ struct CardFooterView: View {
     @Binding var units: Units
     
     let price: Double
-    let discount: Double
+    var discount: Double
     
     var selectedTab: TabName
     
@@ -24,9 +24,11 @@ struct CardFooterView: View {
                 .shadow(color: .gray.opacity(0.1), radius: 8, y: -16)
             VStack {
                 PriceView(
-                    units: $units,
-                    price: price,
-                    totalPrice: viewModel.getToptalPrice(from: price, with: discount)
+                    units: $units, 
+                    quantity: $viewModel.quantity,
+                    price: price, 
+                    priceForOne: viewModel.geStringTotalPrice(for: 1, from: price, with: discount),
+                    totalPrice: viewModel.geStringTotalPrice(for: viewModel.quantity, from: price, with: discount)
                 )
                     .padding(.horizontal, 8)
                     .padding(.vertical, 8)

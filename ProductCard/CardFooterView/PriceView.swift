@@ -9,13 +9,14 @@ import SwiftUI
 
 struct PriceView: View {
     @Binding var units: Units
-    @State var quantity = 1
+    @Binding var quantity: Int
     let price: Double
+    let priceForOne: String
     let totalPrice: String
     
     var body: some View {
         VStack {
-            Picker("Test", selection: $units) {
+            Picker("", selection: $units) {
                 ForEach(Units.allCases, id: \.self) { unit in
                     Text(unit.rawValue)
                 }
@@ -26,11 +27,11 @@ struct PriceView: View {
             
             
             HStack {
-                PricePerView(price: price, totalPrice: totalPrice)
+                PricePerView(price: price, totalPrice: priceForOne, pricePer: $units)
                     .padding(.horizontal, 8)
                 
                 
-                TotalPriceStepperView(quantity: $quantity, price: price)
+                TotalPriceStepperView(quantity: $quantity, price: price, pricePer: units, totalPrice: totalPrice)
                     .padding(.horizontal, 8)
                 
             }
@@ -39,5 +40,5 @@ struct PriceView: View {
 }
 
 #Preview {
-    PriceView(units: .constant(.kilo), price: 399.9, totalPrice: "345.6")
+    PriceView(units: .constant(.kilo), quantity: .constant(2), price: 399.9, priceForOne: "379", totalPrice: "345.6")
 }

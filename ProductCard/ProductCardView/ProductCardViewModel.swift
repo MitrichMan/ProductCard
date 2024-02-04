@@ -42,7 +42,7 @@ final class ProductCardViewModel: ObservableObject {
     ) {
         didSet {
             manufacturedAt = "\(product.countryOfManufacture),  \(product.regionOfManufacture)"
-            discountLabelText = "-\(product.discount)%"
+            discountLabelText = "-\(String(format: "%.0f", product.discount))%"
         }
     }
     

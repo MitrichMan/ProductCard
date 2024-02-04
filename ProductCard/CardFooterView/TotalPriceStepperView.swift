@@ -10,6 +10,8 @@ import SwiftUI
 struct TotalPriceStepperView: View {
     @Binding var quantity: Int
     let price: Double
+    var pricePer: Units
+    var totalPrice: String
     
     var body: some View {
         ZStack {
@@ -27,10 +29,16 @@ struct TotalPriceStepperView: View {
                 })
                 .padding(.horizontal,8)
                 
-                VStack {
-                    Text("\(quantity)")
+                VStack(alignment: .leading) {
+                    Text("\(quantity) \(pricePer.rawValue)")
+                        .font(.system(size: 20, weight: .bold))
+                        .frame(width: 65, alignment: .trailing)
+                        
                     Text("\(String(format: "%.1f",(price - price / 100 * 5) * Double(quantity)))₽")
+                        .frame(width: 75)
+
                 }
+                .frame(width: 75)
                 .foregroundColor(.white)
                 
                 Button(action: {
@@ -44,9 +52,10 @@ struct TotalPriceStepperView: View {
             }
             .padding(.horizontal, 16)
         }
+        .frame(width: 200)
     }
 }
 
 #Preview {
-    TotalPriceStepperView(quantity: .constant(2), price: 399.9)
+    TotalPriceStepperView(quantity: .constant(2), price: 399.9, pricePer: .unit, totalPrice: "23456")
 }

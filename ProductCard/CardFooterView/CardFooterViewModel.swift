@@ -8,6 +8,7 @@
 import SwiftUI
 
 final class CardFooterViewModel: ObservableObject {
+    @Published var quantity = 1
     
     func getPictureName(for tabName: TabName) -> String {
         switch tabName {
@@ -30,7 +31,11 @@ final class CardFooterViewModel: ObservableObject {
         }
     }
     
-    func getToptalPrice(from price: Double, with discount: Double) -> String {
-        String(NSString(format: "%.1f", (price - (price / 100 * discount))))
+    func geStringTotalPrice(for quantity: Int, from price: Double, with discount: Double) -> String {
+        String(format: "%.1f", getTotalPrice(for: quantity, from: price, with: discount))
+    }
+    
+    func getTotalPrice(for quantity: Int, from price: Double, with discount: Double) -> Double {
+        (price - (price / 100 * discount)) * Double(quantity)
     }
 }

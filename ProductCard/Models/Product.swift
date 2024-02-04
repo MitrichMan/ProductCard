@@ -13,7 +13,6 @@ struct Product {
     let promotionDescription: String
     let countryOfManufacture: String
     let regionOfManufacture:String
-//    var mark: Double
     let discount: Double
     let description: String
     let price: Double

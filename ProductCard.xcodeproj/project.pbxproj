@@ -16,6 +16,7 @@
 		4D7577C02B6ECF7E00CBF174 /* TotalPriceStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577BF2B6ECF7E00CBF174 /* TotalPriceStepperView.swift */; };
 		4D7577C22B6ECFB800CBF174 /* PricePerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577C12B6ECFB800CBF174 /* PricePerView.swift */; };
 		4D7577C42B6EDB0500CBF174 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577C32B6EDB0500CBF174 /* PriceView.swift */; };
+		4D7577C62B70144B00CBF174 /* DiscountFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577C52B70144B00CBF174 /* DiscountFlagView.swift */; };
 		4DC80EDE2B6AC82E0023933B /* ProductCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */; };
 		4DC80EE22B6AC8460023933B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC80EE12B6AC8460023933B /* Assets.xcassets */; };
 		4DC80EE52B6AC8460023933B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC80EE42B6AC8460023933B /* Preview Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		4D7577BF2B6ECF7E00CBF174 /* TotalPriceStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceStepperView.swift; sourceTree = "<group>"; };
 		4D7577C12B6ECFB800CBF174 /* PricePerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePerView.swift; sourceTree = "<group>"; };
 		4D7577C32B6EDB0500CBF174 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		4D7577C52B70144B00CBF174 /* DiscountFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountFlagView.swift; sourceTree = "<group>"; };
 		4DC80EDA2B6AC82E0023933B /* ProductCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardApp.swift; sourceTree = "<group>"; };
 		4DC80EE12B6AC8460023933B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				4DC80F002B6AF3440023933B /* TrailingNavigationBarItemsView.swift */,
 				4DC80EFE2B6AF2E00023933B /* PromotionTileView.swift */,
+				4D7577C52B70144B00CBF174 /* DiscountFlagView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				4DC80F072B6C135B0023933B /* CharacteristicsViewModel.swift in Sources */,
 				4DC80EF72B6AC9A10023933B /* Product.swift in Sources */,
 				4D7577B52B6C24E400CBF174 /* ReviewsView.swift in Sources */,
+				4D7577C62B70144B00CBF174 /* DiscountFlagView.swift in Sources */,
 				4DC80F032B6AFDA80023933B /* MarksAndDiscountView.swift in Sources */,
 				4DC80F052B6C134D0023933B /* CharacteristicsView.swift in Sources */,
 				4DC80EDE2B6AC82E0023933B /* ProductCardApp.swift in Sources */,

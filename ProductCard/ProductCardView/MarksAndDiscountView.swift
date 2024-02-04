@@ -27,10 +27,12 @@ struct MarksAndDiscountView: View {
             Spacer()
             if discountIsAvailible {
                 ZStack {
-                    Color.red
+//                    Color.red
+                    DiscountFlagView()
                         .frame(width: 30, height: 20)
+                        .offset(y: -5)
                     Text(discount)
-                        .font(.system(size: 12, weight: .semibold))
+                        .font(.system(size: 12, weight: .bold))
                         .foregroundColor(.white)
                 }
             }
@@ -41,7 +43,7 @@ struct MarksAndDiscountView: View {
 
 #Preview {
     MarksAndDiscountView(
-        discount: "10",
+        discount: "-5%",
         discountIsAvailible: true,
         mark: 4.7
     )

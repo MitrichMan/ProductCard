@@ -10,27 +10,34 @@ import SwiftUI
 struct PricePerView: View {
     let price: Double
     let totalPrice: String
+    @Binding var pricePer: Units
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("\(totalPrice) ₽/кг")
+                Text("\(totalPrice)")
+                    .font(.system(size: 35, weight: .semibold))
+                
+                ZStack {
+                    VStack(spacing: -5) {
+                        HStack{
+                            Text("₽")
+                            Spacer()
+                        }
+                        
+                        HStack {
+                            Spacer()
+                            Text(pricePer.rawValue)
+                        }
+                    }
+                    .frame(width: 30, height: 30)
+                    .font(.system(size: 14, weight: .semibold))
                     
-                    .font(.system(size: 25, weight: .semibold))
-//                ZStack {
-//                    VStack {
-//                        HStack(alignment: .bottom) {
-//                            Text("₽")
-//                            Spacer()
-//                        }
-//                        HStack(alignment: .top) {
-//                            Spacer()
-//                            Text("кг")
-//                        }
-//                    }
-//                    Text("/")
-//                }
-//                .font(.system(size: 16, weight: .semibold))
+                    Image(systemName: "line.diagonal")
+                        .font(.system(size: 18, weight: .semibold))
+                        .offset(CGSize(width: -5, height: -2))
+
+                }
 //                .frame(width: 30, height: 30)
             }
             Text("\(String(format: "%.1f", price))")
@@ -41,5 +48,5 @@ struct PricePerView: View {
 }
 
 #Preview {
-    PricePerView(price: 399.9, totalPrice: "1234")
+    PricePerView(price: 399.9, totalPrice: "1234", pricePer: .constant(.kilo))
 }
