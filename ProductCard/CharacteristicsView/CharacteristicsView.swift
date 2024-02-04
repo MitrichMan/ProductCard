@@ -10,6 +10,8 @@ import SwiftUI
 struct CharacteristicsView: View {
     @StateObject var viewModel = CharacteristicsViewModel()
     
+    var product:  Product
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Основные характеристики")
@@ -19,7 +21,6 @@ struct CharacteristicsView: View {
                 HStack(alignment: .top, spacing: 0) {
                     Text(DataManager.shared.characteristicsFieldNames[index].rawValue)
                         .frame(maxHeight: 60, alignment: .top)
-                        .multilineTextAlignment(.leading)
                         .layoutPriority(1)
                     
                     Text(viewModel.dottedSeparator)
@@ -48,11 +49,11 @@ struct CharacteristicsView: View {
         }
         .animation(.default)
         .onAppear(perform: {
-            viewModel.product = DataManager.shared.getProduct()
+            viewModel.product = product
         })
     }
 }
 
 #Preview {
-    CharacteristicsView()
+    CharacteristicsView(product: DataManager.shared.getProduct())
 }

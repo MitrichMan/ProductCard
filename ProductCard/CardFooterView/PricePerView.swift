@@ -38,7 +38,6 @@ struct PricePerView: View {
                         .offset(CGSize(width: -5, height: -2))
 
                 }
-//                .frame(width: 30, height: 30)
             }
             Text("\(String(format: "%.1f", price))")
                 .foregroundColor(.gray)

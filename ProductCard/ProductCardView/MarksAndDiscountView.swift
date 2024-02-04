@@ -17,6 +17,7 @@ struct MarksAndDiscountView: View {
         HStack {
             Image(systemName: "star.fill")
                 .foregroundColor(.yellow)
+                .padding(.leading, 4)
             
             Text("\(String(format: "%.1f", mark))")
                 .font(.system(size: 16, weight: .semibold))
@@ -35,6 +36,7 @@ struct MarksAndDiscountView: View {
                         .font(.system(size: 12, weight: .bold))
                         .foregroundColor(.white)
                 }
+                .padding(.horizontal, 8)
             }
         }
     }

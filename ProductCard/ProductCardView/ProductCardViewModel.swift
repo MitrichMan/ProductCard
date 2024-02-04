@@ -20,8 +20,8 @@ final class ProductCardViewModel: ObservableObject {  @Published var product = D
     }
     
     @Published var flag = UIImage()
-    @Published var numberOfReviews = 0
     
+    var numberOfReviews = 0
     let reviews = DataManager.shared.makeRewiews()
     let selectedTab: TabName = .main
     var averageMark: Double = 0
@@ -29,26 +29,33 @@ final class ProductCardViewModel: ObservableObject {  @Published var product = D
     var imageIsFetched = false
     var discountIsAvailible = true
         
-    @MainActor func fetchImages(from url: String) {
+    @MainActor func prepareData() {
+            fetchImages(from: product.productImageLink)
+            checkAvailibility(of: product.discount)
+            getFlag(of: product.countryOfManufacture)
+            getAverageMark(for: reviews)
+    }
+    
+    private func fetchImages(from url: String) {
         Task {
             guard let image = await fetchImage(from: url) else { return }
             productImage = image
         }
     }
     
-    func checkAvailibility(of discount: Double) {
+    private func checkAvailibility(of discount: Double) {
         if product.discount == 0 {
             discountIsAvailible = false
         }
     }
     
-    func getFlag(of country: String) {
+    private func getFlag(of country: String) {
         if country == "Россия" {
             flag = UIImage(resource: .russianFlag)
         }
     }
     
-    func getPictureName(for tabName: TabName) -> String {
+    private func getPictureName(for tabName: TabName) -> String {
         if tabName == selectedTab {
             return "green"
         } else {
@@ -56,7 +63,7 @@ final class ProductCardViewModel: ObservableObject {  @Published var product = D
         }
     }
     
-    func getAverageMark(for reviews: [Review]) {
+    private func getAverageMark(for reviews: [Review]) {
         var count = 0.0
         var sum = 0.0
         var average = 0.0
@@ -66,13 +73,6 @@ final class ProductCardViewModel: ObservableObject {  @Published var product = D
             average = sum / count
         }
         averageMark = average
-    }
-    
-    @MainActor func prepareData() {
-            fetchImages(from: product.productImageLink)
-            checkAvailibility(of: product.discount)
-            getFlag(of: product.countryOfManufacture)
-            getAverageMark(for: reviews)
     }
     
     private func fetchImage(from url: String) async -> UIImage? {

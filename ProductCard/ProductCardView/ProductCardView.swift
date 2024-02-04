@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProductCardView: View {
-    
     @StateObject private var viewModel = ProductCardViewModel()
     
     var body: some View {
@@ -55,7 +54,7 @@ struct ProductCardView: View {
                         DescriptionView(description: viewModel.product.description)
                             .padding(.horizontal, 16)
                         
-                        CharacteristicsView()
+                        CharacteristicsView(product: viewModel.product)
                             .animation(.default)
                             .padding(.horizontal, 16)
                         

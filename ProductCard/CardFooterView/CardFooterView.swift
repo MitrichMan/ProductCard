@@ -27,8 +27,16 @@ struct CardFooterView: View {
                     units: $units, 
                     quantity: $viewModel.quantity,
                     price: price, 
-                    priceForOne: viewModel.geStringTotalPrice(for: 1, from: price, with: discount),
-                    totalPrice: viewModel.geStringTotalPrice(for: viewModel.quantity, from: price, with: discount)
+                    priceForOne: viewModel.geStringTotalPrice(
+                        for: 1,
+                        from: price,
+                        with: discount
+                    ),
+                    totalPrice: viewModel.geStringTotalPrice(
+                        for: viewModel.quantity,
+                        from: price,
+                        with: discount
+                    )
                 )
                     .padding(.horizontal, 8)
                     .padding(.vertical, 8)

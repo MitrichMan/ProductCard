@@ -35,7 +35,7 @@ final class CardFooterViewModel: ObservableObject {
         String(format: "%.1f", getTotalPrice(for: quantity, from: price, with: discount))
     }
     
-    func getTotalPrice(for quantity: Int, from price: Double, with discount: Double) -> Double {
+    private func getTotalPrice(for quantity: Int, from price: Double, with discount: Double) -> Double {
         (price - (price / 100 * discount)) * Double(quantity)
     }
 }

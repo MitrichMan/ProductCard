@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-struct ReviewsView: View {
-    @StateObject var viewModel = ReviewsViewModel()
-//    /*@Binding */var mark: Double
-    
+struct ReviewsView: View {    
     var reviews: [Review] 
     
     var body: some View {
@@ -95,48 +92,5 @@ struct ReviewsView: View {
 
 
 #Preview {
-    ReviewsView(reviews: [
-        Review(
-            reviewerName: "Светлана",
-            date: "26 Ноября 2023",
-            mark: 5,
-            reviewText: "Конфеты очень вкусные!!!"
-        ),
-        Review(
-            reviewerName: "Светлана",
-            date: "26 Ноября 2023",
-            mark: 5,
-            reviewText: "Конфеты очень вкусные!!!"
-        ),
-        Review(
-            reviewerName: "Светлана",
-            date: "26 Ноября 2023",
-            mark: 5,
-            reviewText: "Конфеты очень вкусные!!!"
-        ),
-        Review(
-            reviewerName: "Светлана",
-            date: "26 Ноября 2023",
-            mark: 5,
-            reviewText: "Конфеты очень вкусные!!!"
-        ),
-        Review(
-            reviewerName: "Светлана",
-            date: "26 Ноября 2023",
-            mark: 5,
-            reviewText: "Конфеты очень вкусные!!!"
-        ),
-        Review(
-            reviewerName: "Светлана",
-            date: "26 Ноября 2023",
-            mark: 5,
-            reviewText: "Конфеты очень вкусные!!!"
-        ),
-        Review(
-            reviewerName: "Светлана",
-            date: "26 Ноября 2023",
-            mark: 5,
-            reviewText: "Конфеты очень вкусные!!!"
-        )
-    ])
+    ReviewsView(reviews: DataManager.shared.makeRewiews())
 }

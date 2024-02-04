@@ -15,7 +15,6 @@ final class CharacteristicsViewModel: ObservableObject {
         promotionDescription: "",
         countryOfManufacture: "",
         regionOfManufacture: "", 
-//        mark: 0,
         discount: 0,
         description: "",
         price: 0,
