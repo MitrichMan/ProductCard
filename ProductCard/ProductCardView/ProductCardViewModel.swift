@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Combine
+import SwiftUI
 
 final class ProductCardViewModel: ObservableObject {
     @Published var product = Product(
@@ -15,9 +16,10 @@ final class ProductCardViewModel: ObservableObject {
         productImageLink: "",
         promotionDescription: "",
         countryOfManufacture: "",
-        regionOfManufacture: "",
-        discount: 0, 
-        description: "", 
+        regionOfManufacture: "", 
+//        mark: 0,
+        discount: 0,
+        description: "",
         price: 0,
         pricePer: .unit,
         characteristics: Characteristics(
@@ -54,13 +56,20 @@ final class ProductCardViewModel: ObservableObject {
     
     @Published var flag = UIImage()
     
-    let reviews = DataManager.shared.reviews
+    let reviews = DataManager.shared.makeRewiews()
+    let selectedTab: TabName = .main
+    var averageMark: Double = 0
     
     var imageIsFetched = false
     var discountIsAvailible = true
     
     var discountLabelText = ""
     var manufacturedAt = ""
+    @Published var numberOfReviews = 0 {
+        didSet {
+            print(numberOfReviews)
+        }
+    }
     
     @MainActor func fetchImages(from url: String) {
         Task {
@@ -69,7 +78,7 @@ final class ProductCardViewModel: ObservableObject {
         }
     }
     
-    func checkAvailibility(of discount: Int) {
+    func checkAvailibility(of discount: Double) {
         if product.discount == 0 {
             discountIsAvailible = false
         }
@@ -79,6 +88,26 @@ final class ProductCardViewModel: ObservableObject {
         if country == "Россия" {
             flag = UIImage(resource: .russianFlag)
         }
+    }
+    
+    func getPictureName(for tabName: TabName) -> String {
+        if tabName == selectedTab {
+            return "green"
+        } else {
+            return "black"
+        }
+    }
+    
+    func getAverageMark(for reviews: [Review]) {
+        var count = 0.0
+        var sum = 0.0
+        var average = 0.0
+        for review in reviews {
+            sum += review.mark
+            count += 1
+            average = sum / count
+        }
+        averageMark = average
     }
     
     private func fetchImage(from url: String) async -> UIImage? {

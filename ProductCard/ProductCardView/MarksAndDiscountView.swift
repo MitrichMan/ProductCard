@@ -10,16 +10,17 @@ import SwiftUI
 struct MarksAndDiscountView: View {
     let discount: String
     let discountIsAvailible: Bool
+    let mark: Double
     
     var body: some View {
         HStack {
             Image(systemName: "star.fill")
                 .foregroundColor(.yellow)
             
-            Text("4.7")
+            Text("\(String(format: "%.1f", mark))")
                 .font(.system(size: 16, weight: .semibold))
             
-            Text("| 19 отзывов")
+            Text("| \(DataManager.shared.numberOfReviews) отзывов")
                 .font(.system(size: 16))
                 .foregroundColor(.gray)
             
@@ -39,5 +40,9 @@ struct MarksAndDiscountView: View {
 
 
 #Preview {
-    MarksAndDiscountView(discount: "10", discountIsAvailible: true)
+    MarksAndDiscountView(
+        discount: "10",
+        discountIsAvailible: true,
+        mark: 4.7
+    )
 }

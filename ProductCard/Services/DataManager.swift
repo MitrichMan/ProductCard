@@ -35,7 +35,14 @@ class DataManager: ObservableObject {
         .maximumStorageTemperature
     ]
     
-    var reviews: [Rewiew] = []
+    var reviews: [Review] = [] {
+        didSet {
+            numberOfReviews = reviews.count
+        }
+    }
+    var numberOfReviews = 0
+    
+    let tabNames: [TabName] = [.main, .catalogue, .cart, .profile]
     
     private init() {}
     
@@ -45,8 +52,9 @@ class DataManager: ObservableObject {
             productImageLink: "https://s.myspar.ru/upload/img/10/1010/101002.jpg?1580739557",
             promotionDescription: "Цена по карте",
             countryOfManufacture: "Россия",
-            regionOfManufacture: "Владимирская область",
-            discount: 0, 
+            regionOfManufacture: "Владимирская область", 
+//            mark: 0,
+            discount: 0,
             description: "Хрустящие кокосовые конфеты с цельным миндальным орехом. Raffaello – самые известные и любимые конфеты в России, ставшие неотъемлемой частью жизни. Такой успех стал возможным благодаря уникальному сочетанию неповторимого вкуса, изысканной белоснежной упаковки и, конечно, романтического имиджа.", 
             price: 399.9, 
             pricePer: .unit, 
@@ -74,19 +82,21 @@ class DataManager: ObservableObject {
         )
     }
     
-    func makeRewiews() {
+    func makeRewiews() -> [Review] {
+        var reviews: [Review] = []
         var count = 0
-        while count < 10 {
+        while count < Int.random(in: 5...20) {
             reviews.append(
-                Rewiew(
+                Review(
                     reviewerName: "Светлана",
                     date: "26 Ноября 2023",
-                    mark: Double.random(in: 4...5),
+                    mark: Double(Int.random(in: 4...5)),
                     reviewText: "Конфеты очень вкусные!!!"
                 )
             )
             count += 1
         }
+        return reviews
     }
 }
 
@@ -112,4 +122,11 @@ enum CharacteristicsFieldName: String {
 enum Units: String, CaseIterable {
     case unit = "Шт"
     case kilo = "Кг"
+}
+
+enum TabName: String {
+    case main = "Главная"
+    case catalogue = "Каталог"
+    case cart = "Корзина"
+    case profile = "Профиль"
 }

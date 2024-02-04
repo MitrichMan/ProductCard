@@ -15,6 +15,7 @@
 		4D7577BD2B6C33E200CBF174 /* CardFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577BC2B6C33E200CBF174 /* CardFooterViewModel.swift */; };
 		4D7577C02B6ECF7E00CBF174 /* TotalPriceStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577BF2B6ECF7E00CBF174 /* TotalPriceStepperView.swift */; };
 		4D7577C22B6ECFB800CBF174 /* PricePerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577C12B6ECFB800CBF174 /* PricePerView.swift */; };
+		4D7577C42B6EDB0500CBF174 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7577C32B6EDB0500CBF174 /* PriceView.swift */; };
 		4DC80EDE2B6AC82E0023933B /* ProductCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */; };
 		4DC80EE22B6AC8460023933B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC80EE12B6AC8460023933B /* Assets.xcassets */; };
 		4DC80EE52B6AC8460023933B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC80EE42B6AC8460023933B /* Preview Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		4D7577BC2B6C33E200CBF174 /* CardFooterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFooterViewModel.swift; sourceTree = "<group>"; };
 		4D7577BF2B6ECF7E00CBF174 /* TotalPriceStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceStepperView.swift; sourceTree = "<group>"; };
 		4D7577C12B6ECFB800CBF174 /* PricePerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePerView.swift; sourceTree = "<group>"; };
+		4D7577C32B6EDB0500CBF174 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		4DC80EDA2B6AC82E0023933B /* ProductCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardApp.swift; sourceTree = "<group>"; };
 		4DC80EE12B6AC8460023933B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,8 +84,9 @@
 			children = (
 				4D7577BA2B6C33C200CBF174 /* CardFooterView.swift */,
 				4D7577BC2B6C33E200CBF174 /* CardFooterViewModel.swift */,
-				4D7577BF2B6ECF7E00CBF174 /* TotalPriceStepperView.swift */,
+				4D7577C32B6EDB0500CBF174 /* PriceView.swift */,
 				4D7577C12B6ECFB800CBF174 /* PricePerView.swift */,
+				4D7577BF2B6ECF7E00CBF174 /* TotalPriceStepperView.swift */,
 			);
 			path = CardFooterView;
 			sourceTree = "<group>";
@@ -93,7 +96,6 @@
 			children = (
 				4DC80F002B6AF3440023933B /* TrailingNavigationBarItemsView.swift */,
 				4DC80EFE2B6AF2E00023933B /* PromotionTileView.swift */,
-				4D7577B82B6C318100CBF174 /* ReviewsView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -120,6 +122,7 @@
 				4DC80EDD2B6AC82E0023933B /* ProductCardApp.swift */,
 				4DC80EEF2B6AC91A0023933B /* ProductCardView */,
 				4DC80F082B6C13810023933B /* CharacteristicsView */,
+				4D7577B82B6C318100CBF174 /* ReviewsView */,
 				4D7577B92B6C33A400CBF174 /* CardFooterView */,
 				4D7577BE2B6D6FE700CBF174 /* UI */,
 				4DC80EF02B6AC9450023933B /* Models */,
@@ -255,6 +258,7 @@
 				4D7577B12B6C1D8800CBF174 /* DescriptionView.swift in Sources */,
 				4DC80EFF2B6AF2E00023933B /* PromotionTileView.swift in Sources */,
 				4D7577C02B6ECF7E00CBF174 /* TotalPriceStepperView.swift in Sources */,
+				4D7577C42B6EDB0500CBF174 /* PriceView.swift in Sources */,
 				4D7577BD2B6C33E200CBF174 /* CardFooterViewModel.swift in Sources */,
 				4DC80EFD2B6AF2760023933B /* ProductImageView.swift in Sources */,
 				4DC80EF92B6AC9B20023933B /* DataManager.swift in Sources */,

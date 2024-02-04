@@ -9,43 +9,51 @@ import SwiftUI
 
 
 struct CardFooterView: View {
+    @StateObject private var viewModel = CardFooterViewModel()
     
     @Binding var units: Units
-    @State var quantity = 1
+    
+    let price: Double
+    let discount: Double
+    
+    var selectedTab: TabName
     
     var body: some View {
         ZStack {
             Color.white
                 .shadow(color: .gray.opacity(0.1), radius: 8, y: -16)
             VStack {
-                Picker("Test", selection: $units) {
-                    ForEach(Units.allCases, id: \.self) { unit in
-                        Text(unit.rawValue)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                
+                PriceView(
+                    units: $units,
+                    price: price,
+                    totalPrice: viewModel.getToptalPrice(from: price, with: discount)
+                )
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 8)
                 
                 HStack {
-                    PricePerView()
-                        .padding(.horizontal, 16)
-                    
-
-                    TotalPriceStepperView(quantity: $quantity)
-                        .padding(.trailing, 16)
-
+                    ForEach(DataManager.shared.tabNames, id: \.self) { tabName in
+                        Button(action: {}, label: {
+                            VStack {
+                                Image(systemName: viewModel.getPictureName(for: tabName))
+                                    .font(.system(size: 30))
+                                Text(tabName.rawValue)
+                            }
+                        })
+                        .padding(.horizontal, 8)
+                        .foregroundColor(viewModel.getColourName(
+                            for: selectedTab, 
+                            currentIteration: tabName
+                        ))
+                    }
                 }
+                .padding(.horizontal, 8)
             }
         }
+        
     }
 }
 
 #Preview {
-    CardFooterView(units: .constant(.kilo))
+    CardFooterView(units: .constant(.kilo), price: 399.9, discount: 5, selectedTab: .main)
 }
-
-
-
-

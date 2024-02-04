@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ReviewsView: View {
-    let reviews: [Rewiew]
+    @StateObject var viewModel = ReviewsViewModel()
+//    /*@Binding */var mark: Double
+    
+    var reviews: [Review] 
     
     var body: some View {
         VStack {
@@ -18,9 +21,11 @@ struct ReviewsView: View {
                 
                 Spacer()
                 
-                Text("Все \(reviews.count)")
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(.green)
+                Button(action: {}, label: {
+                    Text("Все \(reviews.count)")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.green)
+                })
             }
             .padding(.horizontal, 16)
             .padding(.top, 8)
@@ -37,12 +42,25 @@ struct ReviewsView: View {
                             
                             VStack(alignment: .leading) {
                                 Text(review.reviewerName)
+                                    .font(.system(size: 18, weight: .semibold))
                                 
                                 Text(review.date)
+                                    .foregroundColor(.gray)
                                 
-                                HStack {
-                                    ForEach(0..<5, id: \.self) { _ in
-                                        Image(systemName: "star.fill")
+                                ZStack(alignment: .leading) {
+                                    HStack {
+                                        ForEach(0..<5, id: \.self) { _ in
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.gray)
+                                                .opacity(0.3)
+                                        }
+                                    }
+                                    
+                                    HStack {
+                                        ForEach(0..<Int(review.mark), id: \.self) { _ in
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.yellow)
+                                        }
                                     }
                                 }
                                 
@@ -57,7 +75,19 @@ struct ReviewsView: View {
             }
             
             Button(action: {}, label: {
-                Text("Оставить отзыв")
+                HStack {
+                    Spacer()
+                    
+                    Text("Оставить отзыв")
+                        .foregroundColor(.green)
+                        .font(.system(size: 16, weight: .semibold))
+                        .padding(.vertical, 8)
+                    
+                    Spacer()
+                    
+                }
+                .overlay(Capsule().stroke(Color.green, lineWidth: 2))
+                .padding(.horizontal, 16)
             })
         }
     }
@@ -67,43 +97,43 @@ struct ReviewsView: View {
 
 #Preview {
     ReviewsView(reviews: [
-        Rewiew(
+        Review(
             reviewerName: "Светлана",
             date: "26 Ноября 2023",
             mark: 5,
             reviewText: "Конфеты очень вкусные!!!"
         ),
-        Rewiew(
+        Review(
             reviewerName: "Светлана",
             date: "26 Ноября 2023",
             mark: 5,
             reviewText: "Конфеты очень вкусные!!!"
         ),
-        Rewiew(
+        Review(
             reviewerName: "Светлана",
             date: "26 Ноября 2023",
             mark: 5,
             reviewText: "Конфеты очень вкусные!!!"
         ),
-        Rewiew(
+        Review(
             reviewerName: "Светлана",
             date: "26 Ноября 2023",
             mark: 5,
             reviewText: "Конфеты очень вкусные!!!"
         ),
-        Rewiew(
+        Review(
             reviewerName: "Светлана",
             date: "26 Ноября 2023",
             mark: 5,
             reviewText: "Конфеты очень вкусные!!!"
         ),
-        Rewiew(
+        Review(
             reviewerName: "Светлана",
             date: "26 Ноября 2023",
             mark: 5,
             reviewText: "Конфеты очень вкусные!!!"
         ),
-        Rewiew(
+        Review(
             reviewerName: "Светлана",
             date: "26 Ноября 2023",
             mark: 5,

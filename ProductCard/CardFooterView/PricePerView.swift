@@ -8,19 +8,38 @@
 import SwiftUI
 
 struct PricePerView: View {
+    let price: Double
+    let totalPrice: String
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("379.9 ₽/кг")
-                .font(.system(size: 25, weight: .semibold))
-            Text("399,9")
+            HStack {
+                Text("\(totalPrice) ₽/кг")
+                    
+                    .font(.system(size: 25, weight: .semibold))
+//                ZStack {
+//                    VStack {
+//                        HStack(alignment: .bottom) {
+//                            Text("₽")
+//                            Spacer()
+//                        }
+//                        HStack(alignment: .top) {
+//                            Spacer()
+//                            Text("кг")
+//                        }
+//                    }
+//                    Text("/")
+//                }
+//                .font(.system(size: 16, weight: .semibold))
+//                .frame(width: 30, height: 30)
+            }
+            Text("\(String(format: "%.1f", price))")
                 .foregroundColor(.gray)
                 .strikethrough()
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
     }
 }
 
 #Preview {
-    PricePerView()
+    PricePerView(price: 399.9, totalPrice: "1234")
 }

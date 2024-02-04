@@ -13,7 +13,8 @@ struct Product {
     let promotionDescription: String
     let countryOfManufacture: String
     let regionOfManufacture:String
-    let discount: Int
+//    var mark: Double
+    let discount: Double
     let description: String
     let price: Double
     var pricePer: Units
@@ -38,7 +39,7 @@ struct Characteristics {
     let maximumStorageTemperature: String
 }
 
-struct Rewiew: Hashable {
+struct Review: Hashable {
     let reviewerName: String
     let date: String
     let mark: Double
