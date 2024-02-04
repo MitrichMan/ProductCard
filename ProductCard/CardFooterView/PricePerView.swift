@@ -16,7 +16,7 @@ struct PricePerView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("\(totalPrice)")
-                    .font(.system(size: 35, weight: .semibold))
+                    .font(.custom("Arial Rounded MT Bold", size: 30))
                 
                 ZStack {
                     VStack(spacing: -5) {
@@ -31,10 +31,10 @@ struct PricePerView: View {
                         }
                     }
                     .frame(width: 30, height: 30)
-                    .font(.system(size: 14, weight: .semibold))
-                    
+                    .font(.custom("Arial Rounded MT Bold", size: 12))
+
                     Image(systemName: "line.diagonal")
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(.system(size: 16, weight: .semibold))
                         .offset(CGSize(width: -5, height: -2))
 
                 }
@@ -48,5 +48,5 @@ struct PricePerView: View {
 }
 
 #Preview {
-    PricePerView(price: 399.9, totalPrice: "1234", pricePer: .constant(.kilo))
+    PricePerView(price: 399.9, totalPrice: "5995", pricePer: .constant(.kilo))
 }

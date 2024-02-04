@@ -17,12 +17,12 @@ struct DiscountFlagView: View {
                 path.addArc(
                     center: CGPoint(x: width / 2, y: -height),
                     radius: height + height ,
-                    startAngle: .degrees(109.5),
-                    endAngle: .degrees(70.5),
+                    startAngle: .degrees(110),
+                    endAngle: .degrees(70),
                     clockwise: true
                 )
                 
-                path.addLine(to: CGPoint(x: width * 0.9, y: height * 0.15))
+                path.addLine(to: CGPoint(x: width * 0.93, y: height * 0.15))
 
                 path.addCurve(
                     to: CGPoint(x: 0, y: height * 0.4),
@@ -34,7 +34,7 @@ struct DiscountFlagView: View {
             }
             .foregroundColor(.red)
         }
-        .frame(width: 40, height: 30)
+        .frame(width: 42, height: 30)
     }
 }
 

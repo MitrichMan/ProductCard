@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct MarksAndDiscountView: View {
-    let discount: String
+    let discount: Double
     let discountIsAvailible: Bool
     let mark: Double
+    let numberOfReviews: Int
     
     var body: some View {
         HStack {
@@ -20,18 +21,17 @@ struct MarksAndDiscountView: View {
             Text("\(String(format: "%.1f", mark))")
                 .font(.system(size: 16, weight: .semibold))
             
-            Text("| \(DataManager.shared.numberOfReviews) отзывов")
+            Text("| \(numberOfReviews) отзывов")
                 .font(.system(size: 16))
                 .foregroundColor(.gray)
             
             Spacer()
             if discountIsAvailible {
                 ZStack {
-//                    Color.red
                     DiscountFlagView()
                         .frame(width: 30, height: 20)
                         .offset(y: -5)
-                    Text(discount)
+                    Text("-\(String(format: "%.0f", discount))%")
                         .font(.system(size: 12, weight: .bold))
                         .foregroundColor(.white)
                 }
@@ -43,8 +43,9 @@ struct MarksAndDiscountView: View {
 
 #Preview {
     MarksAndDiscountView(
-        discount: "-5%",
+        discount: 5,
         discountIsAvailible: true,
-        mark: 4.7
+        mark: 4.7,
+        numberOfReviews: 10
     )
 }

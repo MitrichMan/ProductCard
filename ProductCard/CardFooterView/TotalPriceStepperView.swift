@@ -24,35 +24,36 @@ struct TotalPriceStepperView: View {
                     }
                 }, label: {
                     Text("-")
-                        .font(.system(size: 50))
+                        .font(.system(size: 40))
                         .foregroundColor(.white)
                 })
                 .padding(.horizontal,8)
                 
                 VStack(alignment: .leading) {
                     Text("\(quantity) \(pricePer.rawValue)")
-                        .font(.system(size: 20, weight: .bold))
-                        .frame(width: 65, alignment: .trailing)
+                        .font(.system(size: 16, weight: .bold))
+                        .frame(width: 50, alignment: .trailing)
                         
                     Text("\(String(format: "%.1f",(price - price / 100 * 5) * Double(quantity)))₽")
-                        .frame(width: 75)
+                        .font(.system(size: 16))
+                        .frame(width: 65)
 
                 }
-                .frame(width: 75)
+                .frame(width: 65)
                 .foregroundColor(.white)
                 
                 Button(action: {
                     quantity += 1
                 }, label: {
                     Text("+")
-                        .font(.system(size: 50))
+                        .font(.system(size: 40))
                         .foregroundColor(.white)
                 })
                 .padding(.horizontal, 8)
             }
             .padding(.horizontal, 16)
         }
-        .frame(width: 200)
+        .frame(width: 180, height: 50)
     }
 }
 

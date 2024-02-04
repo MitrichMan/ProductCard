@@ -14,7 +14,6 @@ struct DescriptionView: View {
         VStack(alignment: .leading) {
             Text("Описание")
                 .font(.system(size: 18, weight: .semibold))
-                .padding(.bottom)
             
             Text(description)
         }

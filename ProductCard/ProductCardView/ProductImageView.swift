@@ -17,6 +17,7 @@ struct ProductImageView: View {
                 .resizable()
                 .cornerRadius(20)
                 .aspectRatio(contentMode: .fit)
+                .padding(.horizontal)
         } else {
             ZStack{
                 Color.gray
@@ -26,6 +27,7 @@ struct ProductImageView: View {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
             }
+            .padding(.horizontal)
         }
     }
 }

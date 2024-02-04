@@ -16,7 +16,7 @@ struct TrailingNavigationBarItemsView: View {
             Button(action: { }, label: {
                 Image(systemName: name)
                     .foregroundColor(.green)
-                    .font(.system(size: 20, weight: .medium))
+                    .font(.system(size: 16, weight: .medium))
             })
         }
     }

@@ -10,42 +10,7 @@ import UIKit
 import Combine
 import SwiftUI
 
-final class ProductCardViewModel: ObservableObject {
-    @Published var product = Product(
-        name: "",
-        productImageLink: "",
-        promotionDescription: "",
-        countryOfManufacture: "",
-        regionOfManufacture: "", 
-//        mark: 0,
-        discount: 0,
-        description: "",
-        price: 0,
-        pricePer: .unit,
-        characteristics: Characteristics(
-            energyValue: "",
-            fats: "",
-            carbohydrates: "",
-            proteins: "",
-            category: "",
-            species: "",
-            type: "",
-            nettoWeight: 0,
-            volume: 0,
-            brand: "",
-            country: "",
-            standart: "",
-            storageLife: "",
-            minimumStorageTemperature: "",
-            maximumStorageTemperature: ""
-        )
-    ) {
-        didSet {
-            manufacturedAt = "\(product.countryOfManufacture),  \(product.regionOfManufacture)"
-            discountLabelText = "-\(String(format: "%.0f", product.discount))%"
-        }
-    }
-    
+final class ProductCardViewModel: ObservableObject {  @Published var product = DataManager.shared.getProduct()
     @Published var productImage = UIImage() {
         didSet {
             if !imageIsFetched {
@@ -55,6 +20,7 @@ final class ProductCardViewModel: ObservableObject {
     }
     
     @Published var flag = UIImage()
+    @Published var numberOfReviews = 0
     
     let reviews = DataManager.shared.makeRewiews()
     let selectedTab: TabName = .main
@@ -62,15 +28,7 @@ final class ProductCardViewModel: ObservableObject {
     
     var imageIsFetched = false
     var discountIsAvailible = true
-    
-    var discountLabelText = ""
-    var manufacturedAt = ""
-    @Published var numberOfReviews = 0 {
-        didSet {
-            print(numberOfReviews)
-        }
-    }
-    
+        
     @MainActor func fetchImages(from url: String) {
         Task {
             guard let image = await fetchImage(from: url) else { return }
@@ -108,6 +66,13 @@ final class ProductCardViewModel: ObservableObject {
             average = sum / count
         }
         averageMark = average
+    }
+    
+    @MainActor func prepareData() {
+            fetchImages(from: product.productImageLink)
+            checkAvailibility(of: product.discount)
+            getFlag(of: product.countryOfManufacture)
+            getAverageMark(for: reviews)
     }
     
     private func fetchImage(from url: String) async -> UIImage? {

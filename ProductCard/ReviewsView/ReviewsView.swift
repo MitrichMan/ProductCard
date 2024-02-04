@@ -28,7 +28,6 @@ struct ReviewsView: View {
                 })
             }
             .padding(.horizontal, 16)
-            .padding(.top, 8)
             
             ScrollView(.horizontal) {
                 HStack(spacing: 16) {

@@ -28,11 +28,12 @@ struct PriceView: View {
             
             HStack {
                 PricePerView(price: price, totalPrice: priceForOne, pricePer: $units)
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, 16)
                 
+                Spacer()
                 
                 TotalPriceStepperView(quantity: $quantity, price: price, pricePer: units, totalPrice: totalPrice)
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, 16)
                 
             }
         }

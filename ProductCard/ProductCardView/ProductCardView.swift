@@ -15,9 +15,8 @@ struct ProductCardView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    VStack {
+                    VStack(spacing: 16) {
                         Divider()
-                            .padding(.bottom, 8)
                         
                         ZStack {
                             ProductImageView(
@@ -29,71 +28,51 @@ struct ProductCardView: View {
                                 promotionDescription: viewModel.product.promotionDescription
                             )
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
+                        .padding(.horizontal)
                         
                         MarksAndDiscountView(
-                            discount: viewModel.discountLabelText,
+                            discount: viewModel.product.discount,
                             discountIsAvailible: viewModel.discountIsAvailible,
-                            mark: viewModel.averageMark
+                            mark: viewModel.averageMark, 
+                            numberOfReviews: viewModel.reviews.count
                         )
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
+                        .padding(.horizontal)
                         
                         HStack {
                             Text(viewModel.product.name)
-                                .font(.system(size: 30, weight: .semibold))
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 8)
+                                .font(.system(size: 25, weight: .semibold))
+                                .padding(.horizontal)
                             
                             Spacer()
                         }
                         
                         CountryOfManufactureView(
                             flag: viewModel.flag,
-                            countryOfManufacture: viewModel.manufacturedAt
+                            countryOfManufacture: "\(viewModel.product.countryOfManufacture),  \(viewModel.product.regionOfManufacture)"
                         )
                         .padding(.horizontal)
-                        .padding(.vertical, 8)
                         
                         DescriptionView(description: viewModel.product.description)
                             .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
                         
                         CharacteristicsView()
                             .animation(.default)
                             .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
                         
                         ReviewsView(
                             reviews: viewModel.reviews
                         )
-                            .padding(.top, 8)
                             .padding(.bottom, 16)
                     }
                 }
                 
                 
                 .onAppear(perform: {
-                    viewModel.product = DataManager.shared.getProduct()
-                    viewModel.fetchImages(from: viewModel.product.productImageLink)
-                    viewModel.checkAvailibility(of: viewModel.product.discount)
-                    viewModel.getFlag(of: viewModel.product.countryOfManufacture)
-                    viewModel.getAverageMark(for: viewModel.reviews)
+                    viewModel.prepareData()
                 })
+               
                 
-                // MARK: - NavBar setup
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: { }, label: {
-                    Image(systemName: "arrow.left")
-                        .foregroundColor(.green)
-                        .font(.system(size: 20, weight: .medium))
-                }))
-                .navigationBarItems(
-                    trailing: HStack {
-                        TrailingNavigationBarItemsView()
-                    }
-                )
+                
                 CardFooterView(
                     units: $viewModel.product.pricePer, 
                     price: viewModel.product.price,
@@ -102,6 +81,17 @@ struct ProductCardView: View {
                 )
                     .frame(height: 180)
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: Button(action: { }, label: {
+                Image(systemName: "arrow.left")
+                    .foregroundColor(.green)
+                    .font(.system(size: 18, weight: .medium))
+            }))
+            .navigationBarItems(
+                trailing: HStack {
+                    TrailingNavigationBarItemsView()
+                }
+            )
         }
     }
 }

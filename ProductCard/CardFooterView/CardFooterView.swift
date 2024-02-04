@@ -38,8 +38,9 @@ struct CardFooterView: View {
                         Button(action: {}, label: {
                             VStack {
                                 Image(systemName: viewModel.getPictureName(for: tabName))
-                                    .font(.system(size: 30))
+                                    .font(.system(size: 20))
                                 Text(tabName.rawValue)
+                                    .font(.system(size: 12))
                             }
                         })
                         .padding(.horizontal, 8)

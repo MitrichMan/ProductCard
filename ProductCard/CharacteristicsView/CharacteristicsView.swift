@@ -14,7 +14,6 @@ struct CharacteristicsView: View {
         VStack(alignment: .leading) {
             Text("Основные характеристики")
                 .font(.system(size: 18, weight: .semibold))
-                .padding(.vertical, 8)
             
             ForEach(0..<viewModel.fieldsPresented, id: \.self) { index in
                 HStack(alignment: .top, spacing: 0) {
@@ -44,6 +43,7 @@ struct CharacteristicsView: View {
                 Text(viewModel.presentationModeButtonName)
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.green)
+                    .padding(.vertical)
             })
         }
         .animation(.default)
